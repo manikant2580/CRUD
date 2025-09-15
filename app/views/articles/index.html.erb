@@ -1,0 +1,25 @@
+<h1 class="text-3xl font-bold mb-6">Articles</h1>
+
+<table class="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
+  <thead class="bg-gray-200">
+    <tr>
+      <th class="py-2 px-4 text-left">Title</th>
+      <th class="py-2 px-4 text-left">Body</th>
+      <th class="py-2 px-4">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @articles.each do |article| %>
+      <tr class="border-b">
+        <td class="py-2 px-4">
+          <%= link_to article.title, article, class: "text-blue-600 hover:underline" %>
+        </td>
+        <td class="py-2 px-4"><%= truncate(article.body, length: 60) %></td>
+        <td class="py-2 px-4 flex space-x-2 justify-center">
+          <%= link_to "Edit", edit_article_path(article), class: "bg-yellow-400 hover:bg-yellow-500 text-white px-2 py-1 rounded" %>
+          <%= link_to "Delete", article, method: :delete, data: { confirm: "Are you sure?" }, class: "bg-red-500 hover:bg-red-600 text-white px-2 py-1 rounded" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

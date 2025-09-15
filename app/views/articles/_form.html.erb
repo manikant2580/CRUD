@@ -1,0 +1,15 @@
+<%= form_with(model: @article, local: true) do |form| %>
+  <div class="mb-6">
+    <%= form.label :title, class: "block text-gray-800 font-semibold mb-2 text-lg" %>
+    <%= form.text_field :title, class: "w-full border border-gray-300 rounded-lg px-4 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition duration-200" %>
+  </div>
+
+  <div class="mb-6">
+    <%= form.label :body, class: "block text-gray-800 font-semibold mb-2 text-lg" %>
+    <%= form.text_area :body, rows: 8, class: "w-full border border-gray-300 rounded-lg px-4 py-3 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition duration-200 resize-none" %>
+  </div>
+
+  <div class="flex space-x-4">
+    <%= form.submit "update", class: "bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded-lg shadow-md transition duration-200" %>
+  </div>
+<% end %>
