@@ -1,7 +1,18 @@
+# config/routes.rb
 Rails.application.routes.draw do
   root "articles#index"
-  resources :articles
 
+  # Users
+  get  "/signup", to: "users#new", as: :signup
+  post "/users",  to: "users#create"
+
+  # Sessions
+  get    "/login",  to: "sessions#new", as: :login
+  post   "/login",  to: "sessions#create"
+  delete "/logout", to: "sessions#destroy", as: :logout
+
+  # Articles CRUD
+  resources :articles
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
